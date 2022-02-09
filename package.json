@@ -1,0 +1,31 @@
+{
+  "name": "diodegui",
+  "productName": "DiodeGUI",
+  "description": "GUI for Diode CLI",
+  "keywords": [],
+  "main": "./main.js",
+  "license": "MIT",
+  "version": "1.0.0",
+  "author": "4ever",
+  "scripts": {
+    "start": "electron ."
+  },
+  "build": {
+    "extraFiles": [
+         {
+           "from": "/bin",
+           "to": "Resources/bin",
+           "filter": [
+             "**/*"
+           ]
+         }
+       ]
+   },
+  "dependencies": {
+    "@electron/remote": "^2.0.4",
+    "app-root-dir": "*"
+  },
+  "devDependencies": {
+    "electron": "17.0.0"
+  }
+}

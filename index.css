@@ -1,0 +1,24 @@
+.tabcontent {
+    display: none;
+  }
+  .current {
+    display: block;
+  }
+  .status {
+    color: rgb(179, 241, 32) !important;
+    font-weight: bold !important;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+}
+  body{
+      
+    min-height: 100%;
+    margin: 0px;
+
+  }
+  html {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+ }

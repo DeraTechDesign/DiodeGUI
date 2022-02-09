@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self';style-src-elem 'self' https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <title>DiodeGui</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body  >
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-start">
+        <strong class="navbar-item">
+          DiodeGUI
+        </strong>
+      </div>
+      <div class="navbar-end is-active">
+        <div class="navbar-item">
+          
+            <a id="addrBtn" class="button is-primary">
+              <strong>address: <span id="addr"></span></strong>
+            </a>
+        </div>
+      </div>
+    </nav>
+    <div class="tabs is-toggle is-fullwidth is-large">
+      <ul>
+        <li id="pbCls" class="is-active">
+          <a id="pb">
+            <span class="icon"><i class="fas fa-image" aria-hidden="true"></i></span>
+            <span>Publish</span>
+          </a>
+        </li>
+        <li id="bindCls">
+          <a id="bind">
+            <span class="icon"><i class="fas fa-music" aria-hidden="true"></i></span>
+            <span>Bind</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="container">
+      <div id="pbDiv" class=" notification is-light current ">
+        <div class="columns">
+        <div class="column">
+          <h2 class="subtitle">Publish Method</h2>
+          <div class="select">
+            <select id="methodP">
+              <option>Public</option>
+              <option>Private</option>
+              <option>Protected</option>
+            </select>
+          </div>
+        </div>
+        <div class="column">
+          <h2 class="subtitle">Ports (seperate with space)</h2>
+          <input class="input" type="text" id="portP" placeholder="eg(8080 9090)">
+        </div>
+
+        <div class="column">
+          <h2 class="subtitle">Whitelist (For Private Method)</h2>
+          <input class="input" type="text" id="privAddrP" placeholder="eg(0xf5048....)">
+        </div>
+      </div>
+        <button id="publishDiode" class="button is-primary">Publish</button>
+      
+    </div>
+      <div id="bindDiv" class="column notification is-light tabcontent">
+        <div class="columns">
+          
+          <div class="column">
+            <h2 class="subtitle">Ports (seperate with space)</h2>
+            <input class="input" type="text" id="portB" placeholder="eg(8080 9090)">
+          </div>
+          <div class="column">
+            <h2 class="subtitle">Remote Address</h2>
+            <input class="input" type="text" id="privAddrB" placeholder="eg(0xf5048....)">
+          </div>
+        </div>
+          <button id="bindDiode" class="button is-primary">Bind</button>
+      </div>
+    </div>
+    <div class="container">
+    <div id="Status" class="column notification is-light">
+      
+      <div class="columns">
+        <div class="column">
+          <h2 class="subtitle">Status:</h2>
+        </div>
+        <div class="column">
+          <h2 class="subtitle status" id="status">Syncing</h2>
+        </div>
+      </div>
+        <button class="button is-danger" id="disconnect">Disconnect</button>
+    </div>
+  </div>
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+  </body>
+</html>
