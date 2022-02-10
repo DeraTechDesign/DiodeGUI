@@ -68,7 +68,8 @@ function getAddr(){
     child.stderr.on( 'data', data => {
         onError(data)
         if(data.indexOf("Client address")!=-1){
-          global.addrs = `${data.slice(data.indexOf("0x"),data.indexOf("0x")+42)}`;
+          addrs = `${data.slice(data.indexOf("0x"),data.indexOf("0x")+42)}`;
+          mainWindow.webContents.send("addrUpdate", addrs)
           }
     });
     child.on('exit', (code) => {
@@ -78,9 +79,10 @@ function getAddr(){
 
 function bindDiode(address, ports){
 
-    let args = ['-bind']
+    let args = []
 
     ports.forEach(port => {
+      args.push('-bind')
       args.push(port+":"+address+":"+port)
     });
     child = spawn( diodePath, args); 

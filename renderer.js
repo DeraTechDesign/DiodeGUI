@@ -7,6 +7,10 @@
 const { ipcRenderer } = require('electron')
 const { clipboard } = require('electron')
 
+ipcRenderer.on("addrUpdate", function (event, data) {
+    const addrText = document.getElementById("addr");
+    addrText.innerText = data;
+});
 
 ipcRenderer.on("status", function (event, data) {
     const addrText = document.getElementById("status");
