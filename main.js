@@ -4,7 +4,7 @@ const path = require('path')
 
 addrs = "................................"
 const appRootDir = require('app-root-dir').get();
-const diodePath = appRootDir + '/bin/diode.exe';
+const diodePath = appRootDir.replace("app.asar", "app.asar.unpacked") + '\\bin\\diode.exe';
 const spawn = require( 'child_process' ).spawn;
 
 let child;

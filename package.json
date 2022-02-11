@@ -11,19 +11,12 @@
     "start": "electron ."
   },
   "build": {
-    "extraFiles": [
-         {
-           "from": "/bin",
-           "to": "Resources/bin",
-           "filter": [
-             "**/*"
-           ]
-         }
-       ]
-   },
+    "asarUnpack": "**/bin/*"
+  },
   "dependencies": {
     "@electron/remote": "^2.0.4",
-    "app-root-dir": "*"
+    "app-root-dir": "*",
+    "asar": "^3.1.0"
   },
   "devDependencies": {
     "electron": "17.0.0"
